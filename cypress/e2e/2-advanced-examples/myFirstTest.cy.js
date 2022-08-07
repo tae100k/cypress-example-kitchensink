@@ -1,3 +1,9 @@
+// env사용하기 -> env는 cypress.json파일에 있음.
+
+// const navbarText = Cypress.env('navbarText')
+
+// cy.findText(navbarText).should('exist')
+
 context('MyFirstTest', () => {
   beforeEach(() => {
     cy.visit('http://example.cypress.io/commands/actions')
@@ -37,5 +43,10 @@ context('MyFirstTest', () => {
     cy.get('.container').eq(2).within(() => {
       cy.get('h4').should('exist')
     })
+  })
+
+  //ch3. plugins
+  it('correctly renders the cypress website link', () => {
+    cy.findByText('cypress.io').should('exist')
   })
 })
